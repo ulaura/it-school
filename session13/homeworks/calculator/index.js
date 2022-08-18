@@ -6,10 +6,11 @@ const multiplicationResultEl = document.getElementById("txtMultiplyResult");
 const divisionResultEl = document.getElementById("txtDivideResult");
 
 const addNewBox = () => {
-  let numOfBoxes = prompt("How many extra numbers do you need?");
+  let numOfBoxes = Number(prompt("How many extra numbers do you need?"));
   for (let i = 1; i <= numOfBoxes; i++) {
     const newNumBox = document.createElement("input");
     newNumBox.type = "number";
+    newNumBox.placeholder = "Number";
     cntNums.appendChild(newNumBox);
   }
 };
