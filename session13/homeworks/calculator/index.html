@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="./index.css">
+  </head>
+  <body>
+    <section>
+      <div id="cntNums">
+        <input type="number"/>
+        <input type="number"/>
+      </div>
+      <button id="addNewBox" onclick="addNewBox()">Add box</button>
+
+      <div id="cntOperations">
+        <label for="chkAdd">Add</label>
+        <input type="checkbox" value="add" id="chkAdd" />
+        <label for="chkSubstract">Substract</label>
+        <input type="checkbox" value="substract" id="chkSubstract" />
+        <label for="chkMultiply">Multiply</label>
+        <input type="checkbox" value="multiply" id="chkMultiply" />
+        <label for="chkDivide">Divide</label>
+        <input type="checkbox" value="divide" id="chkDivide" />
+      </div>
+      <button onclick="calculate()">Calculate</button>
+      <hr />
+      <div>
+        <h3>Results</h3>
+        <h5>Addition: <span id="txtAddResult">0</span></h5>
+        <h5>Subtraction: <span id="txtSubstractResult">0</span></h5>
+        <h5>Multiplication: <span id="txtMultiplyResult">0</span></h5>
+        <h5>Division: <span id="txtDivideResult">0</span></h5>
+      </div>
+    </section>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
