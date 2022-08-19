@@ -22,80 +22,47 @@ const calculate = () => {
 };
 
 const getNumbersToCalculate = () => {
-  const numElements = cntNums.getElementsByTagName("input");
-  const numbersToCalc = [];
-  for (let i = 0; i < numElements.length; i++) {
-    const numberToCalc = Number(numElements[i].value);
-    numbersToCalc.push(numberToCalc);
-  }
-  return numbersToCalc;
+  return [...cntNums.getElementsByTagName("input")].map((element) =>
+    Number(element.value)
+  );
 };
 
 const getApplicableOperations = () => {
-  const operationsElements = cntOperationsEl.getElementsByTagName("input");
-  const operations = [];
-  for (let i = 0; i < operationsElements.length; i++) {
-    const operationElement = operationsElements[i];
-    if (operationElement.checked) {
-      operations.push(operationElement.value);
-    }
-  }
-  return operations;
+  // map and filter only works on arrays
+  // cntOperationsEl.getElementsByTagName("input") returns an HTML collection
+  // which is not an array so we use destructuring to unpack the values into an array
+  return [...cntOperationsEl.getElementsByTagName("input")]
+    .filter((el) => el.checked)
+    .map((el) => el.value);
 };
 
 const handleNumbersCalculation = (numbers, operations) => {
-  for (let i = 0; i < operations.length; i++) {
-    if (operations[i] === "add") {
-      addNumbersAndDisplayResult(numbers);
-    }
-
-    if (operations[i] === "substract") {
-      substractNumbersAndDisplayResult(numbers);
-    }
-
-    if (operations[i] === "multiply") {
-      multiplyNumbersAndDisplayResult(numbers);
-    }
-
-    if (operations[i] === "divide") {
-      divideNumbersAndDisplayResult(numbers);
-    }
-  }
+  operations.forEach((operation) => {
+    //if first condition is false it does short circuiting else it evaluates
+    //the second expression which in our case is a function so it executes the function
+    operation === "add" && addNumbersAndDisplayResult(numbers);
+    operation === "substract" && substractNumbersAndDisplayResult(numbers);
+    operation === "multiply" && multiplyNumbersAndDisplayResult(numbers);
+    operation === "divide" && divideNumbersAndDisplayResult(numbers);
+  });
 };
 
 const addNumbersAndDisplayResult = (numbers) => {
-  let result = 0;
-  for (let i = 0; i < numbers.length; i++) {
-    result += numbers[i];
-  }
+  const result = numbers.reduce((previousValue, number) => previousValue + number, 0);
   additionResultEl.textContent = result;
 };
 
 const substractNumbersAndDisplayResult = (numbers) => {
-  let result = numbers[0];
-  for (let i = 1; i < numbers.length; i++) {
-    result -= numbers[i];
-  }
+  const result = numbers.reduce((previousValue, number) => previousValue - number);
   substractionResultEl.textContent = result;
 };
 
 const multiplyNumbersAndDisplayResult = (numbers) => {
-  let result = 1;
-  for (let i = 0; i < numbers.length; i++) {
-    result *= numbers[i];
-  }
+  const result = numbers.reduce((previousValue, number) => previousValue * number, 1);
   multiplicationResultEl.textContent = result;
 };
 
 const divideNumbersAndDisplayResult = (numbers) => {
-  let result = numbers[0];
-  for (let i = 1; i < numbers.length; i++) {
-    let number = numbers[i];
-    if (number === 0){
-        divisionResultEl.textContent = "Cannot divide by 0";
-        return;      
-    }
-    result /= number;
-  }
-  divisionResultEl.textContent = result;
+  const result = numbers.reduce((previousValue, number) => previousValue / number); 
+  divisionResultEl.textContent = result ?? "Cannot devide by 0"; 
 };
