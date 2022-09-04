@@ -1,5 +1,5 @@
 let balance = 100;
-
+//Immediately Invoked Function Expression (IIFE)
 (() => {
   console.log(
     "Available operations:" +
@@ -11,22 +11,22 @@ let balance = 100;
 })();
 
 const execOp = (operation) => {
-    const op = operation.toUpperCase();
+  const op = operation.toUpperCase();
 
-    // (op === "W" && withdraw() ||
-    // op === "C" && checkBalance() ||
-    // op === "A" && deposit()) || alert("Unknown operation");
+  // (op === "W" && withdraw() ||
+  // op === "C" && checkBalance() ||
+  // op === "A" && deposit()) || alert("Unknown operation");
 
   switch (operation.toUpperCase()) {
     case "W":
       withdraw();
       break;
     case "C":
-        checkBalance();
-    break;
+      checkBalance();
+      break;
     case "D":
-        deposit();
-        break;
+      deposit();
+      break;
     default:
       alert("Unknown operation");
   }
@@ -35,14 +35,14 @@ const execOp = (operation) => {
 const withdraw = () => {
   const amount = Number(prompt("Enter amount to withdraw"));
   const result = balance - amount;
-  result < 0 ? alert("You have insufficient money") : balance = result;
+  result < 0 ? alert("You have insufficient money") : (balance = result);
 };
 
 const checkBalance = () => {
-    alert(`Your balance is: ${balance}`);
-}
+  alert(`Your balance is: ${balance}`);
+};
 
 const deposit = () => {
-    const amount = Number(prompt("Enter amount to deposit"));
-    balance += amount;
-}
+  const amount = Number(prompt("Enter amount to deposit"));
+  balance += amount;
+};

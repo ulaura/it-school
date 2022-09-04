@@ -1,0 +1,39 @@
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+  background-image: url("https://cdn.unenvironment.org/ndc/2021-04/Contacts-closer.bot_.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 300px;
+  width: 50%;
+  margin: auto;
+  color: red;
+}
+
+
+.description {
+    font-size: 20px;
+    text-align: center;
+    max-width: 50%;
+    margin:20px auto;
+}
+
+.reg_users h1 {
+    margin: 160px 30px;
+}
+
+.contact-list {
+  list-style-type:none;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  
+}
+
+.contact {
+  padding: 10px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}

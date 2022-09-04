@@ -1,0 +1,30 @@
+body {
+    font-family: sans-serif;
+  }
+  .scroll-to-top {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: indianred;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+  
+    opacity: 0;
+    visibility: hidden;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease-in-out;
+  }
+  
+  .scroll-to-top:hover {
+    cursor: pointer;
+  }
+  
+  .scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+  
