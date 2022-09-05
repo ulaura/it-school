@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="page-content" id="pageContent">
+    <button class="btn-white" id="btnDarkMode">Dark mode</button>
+    <div class="title" id="pageTitle">
+      <img
+        src="https://cdn.unenvironment.org/ndc/2021-04/Contacts-closer.bot_.jpg"
+        alt=""
+      />
+    </div>
+    <section class="contacts">
+      <h1>Number of contacts: <span id="numOfContacts"></span></h1>
+      <div>
+        <input placeholder="Search by name" id="searchBar" class="search-bar" type="text" />
+        <div>
+            <label for="searchByNumChk" id="searchByNumLbl">Check to search by age</label>
+          <input type="checkbox" id="searchByNumChk"/>
+        </div>
+      </div>
+      <ul id="contactList" class="contact-list"></ul>
+    </section>
+    <script src="./main.js"></script>
+  </body>
+</html>
